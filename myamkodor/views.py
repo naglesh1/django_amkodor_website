@@ -7,3 +7,7 @@ class IndexView(TemplateView):
 
 class GeneralView(TemplateView):
     template_name = 'myamkodor/general.html'
+
+
+class AboutView(TemplateView):
+    template_name = ...

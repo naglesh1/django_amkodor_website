@@ -1,0 +1,29 @@
+{% extends 'myamkodor/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="bg-color-sky-light">
+    <div class="content-md container">
+        <div class="row margin-b-20">
+            <h2 align="center">Тендеры</h2>
+            {% for tender in tenders %}
+            <a href="{% url 'amkodor:showtender' tender.slug %}">{{ tender.title }}</a>
+            <hr>
+
+            {% endfor %}
+
+        </div>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                    <a class="page-link"
+                       href="{% url 'amkodor:general' %}"
+                       tabindex="-1" aria-disabled="true">Назад
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+{% endblock %}

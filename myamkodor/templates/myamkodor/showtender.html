@@ -1,0 +1,27 @@
+{% extends 'myamkodor/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="bg-color-sky-light">
+    <div class="content-md container">
+        <div class="row margin-b-20">
+            <h2 align="center">Тендер</h2>
+            <h3 align="center">{{ tender.title }}</h3>
+            <p>{{ tender.content|linebreaks }}
+            <hr>
+        </div>
+
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                    <a class="page-link"
+                       href="{{request.META.HTTP_REFERER}}"
+                       tabindex="-1" aria-disabled="true">Назад
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+{% endblock %}

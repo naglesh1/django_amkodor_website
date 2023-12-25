@@ -1,0 +1,68 @@
+{% extends 'myamkodor/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="bg-color-sky-light">
+    <div class="content-md container">
+        <div class="row margin-b-40">
+            <div class="col-sm-6">
+                <h2>Свежие новости предприятия</h2>
+                <p>В данном разделе находятся новости предприятия</p>
+            </div>
+        </div>
+
+        {% for news in newss %}
+        <div class="row">
+
+            {% for new in news %}
+            <div class="col-sm-4 sm-margin-b-50">
+                <div class="bg-color-white margin-b-30">
+                    <div class="wow zoomIn" data-wow-duration=".3" data-wow-delay=".1s">
+                        {% if new.photo %}
+                        <img class="img-responsive" src="{{ new.photo.url }}">
+                        {% endif %}
+                    </div>
+                </div>
+                <h4><a href="{% url 'amkodor:shownews' new.slug %}">{{ new.title }}</a> <span
+                        class="text-uppercase margin-l-20"></span></h4>
+                <p>{{ new.content|linebreaks|truncatewords:20 }}</p>
+                <a class="link" href="{% url 'amkodor:shownews' new.slug %}">Читать</a>
+            </div>
+
+            {% endfor %}
+        </div>
+
+        <hr size="10">
+        <div class="bg-color-white margin-b-30">
+        </div>
+        {% endfor %}
+
+        {% if is_paginated %}
+        <nav aria-label="Page navigation example" , align="center">
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not page_obj.has_previous %} disabled {% endif %}">
+                    <a class="page-link"
+                       href="{% if page_obj.has_previous %} {% url 'amkodor:newspage' page_obj.previous_page_number %} {% else %} # {% endif %}"
+                       tabindex="-1" aria-disabled="true">Предыдущая
+                    </a>
+                </li>
+                {% for page in paginator.page_range %}
+                <li class="page-item">
+                    <a class="page-link" href="{% url 'amkodor:newspage' page %}">
+                        {{ page }}
+                    </a>
+                </li>
+                {% endfor %}
+                <li class="page-item {% if not page_obj.has_next %} disabled {% endif %}">
+                    <a class="page-link"
+                       href="{% if page_obj.has_next %} {% url 'amkodor:newspage' page_obj.next_page_number %} {% else %} # {% endif %}">Следующая</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    {% endif %}
+
+
+</div>
+
+{% endblock %}

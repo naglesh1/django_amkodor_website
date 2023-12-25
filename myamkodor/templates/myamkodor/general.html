@@ -8,9 +8,15 @@
     <div class="content-md container">
         <div class="row margin-b-40">
             <div class="col-sm-6">
-                <h2>Work</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed tempor incididunt ut laboret dolore magna
-                    aliqua enim minim veniam exercitation</p>
+                <h2>Общее</h2>
+                <p>На данной страницы вы сможете найти информацию о следующих
+                    разделах: Новости,
+                    Вакансии,
+                    Продукция,
+                    Услуги,
+                    Аренда,
+                    Реализация,
+                    Тендеры.</p>
             </div>
         </div>
         <!--// end row -->
@@ -27,9 +33,9 @@
                     </div>
                     <div class="work-content">
                         <h3 class="color-white margin-b-5">Реализация</h3>
-                        <p class="color-white margin-b-0">Lorem ipsum dolor sit amet consectetur adipiscing</p>
+                        <p class="color-white margin-b-0">Транспорт б/у, Нелеквиды</p>
                     </div>
-                    <a class="content-wrapper-link" href="#"></a>
+                    <a class="content-wrapper-link" href="{% url 'amkodor:realization' 1 %}"></a>
                 </div>
                 <!-- End Work -->
             </div>
@@ -41,10 +47,10 @@
                              alt="Portfolio Image">
                     </div>
                     <div class="work-content">
-                        <h3 class="color-white margin-b-5">Вакансии</h3>
-                        <p class="color-white margin-b-0">Lorem ipsum dolor sit amet consectetur adipiscing</p>
+                        <h3 class="color-white margin-b-5">Новости</h3>
+                        <p class="color-white margin-b-0">Все новости нашего предприятия!</p>
                     </div>
-                    <a class="content-wrapper-link" href="#"></a>
+                    <a class="content-wrapper-link" href="{% url 'amkodor:newspage' 1 %}"></a>
                 </div>
                 <!-- End Work -->
             </div>
@@ -57,9 +63,10 @@
                     </div>
                     <div class="work-content">
                         <h3 class="color-white margin-b-5">Продукция</h3>
-                        <p class="color-white margin-b-0">Lorem ipsum dolor sit amet consectetur adipiscing</p>
+                        <p class="color-white margin-b-0">Электропогрузчики, Автопогрузчики, Электротележки,
+                            Гидравлические тележки, Кабины, Другая продукция.</p>
                     </div>
-                    <a class="content-wrapper-link" href="#"></a>
+                    <a class="content-wrapper-link" href="{% url 'amkodor:products' 1%}"></a>
                 </div>
                 <!-- End Work -->
             </div>
@@ -72,9 +79,9 @@
                     </div>
                     <div class="work-content">
                         <h3 class="color-white margin-b-5">Услуги</h3>
-                        <p class="color-white margin-b-0">Lorem ipsum dolor sit amet consectetur adipiscing</p>
+                        <p class="color-white margin-b-0">Услуги предоставляемые ЗАО «АМКОДОР-УНИКАБ»</p>
                     </div>
-                    <a class="content-wrapper-link" href="#"></a>
+                    <a class="content-wrapper-link" href="{% url 'amkodor:services' %}"></a>
                 </div>
                 <!-- End Work -->
             </div>
@@ -87,9 +94,10 @@
                     </div>
                     <div class="work-content">
                         <h3 class="color-white margin-b-5">Аренда</h3>
-                        <p class="color-white margin-b-0">Lorem ipsum dolor sit amet consectetur adipiscing</p>
+                        <p class="color-white margin-b-0">Сдача в долгосрочную аренду помещения административного,
+                            производственного, складского назначения.</p>
                     </div>
-                    <a class="content-wrapper-link" href="#"></a>
+                    <a class="content-wrapper-link" href="{% url 'amkodor:rent' %}"></a>
                 </div>
                 <!-- End Work -->
             </div>
@@ -101,10 +109,10 @@
                              alt="Portfolio Image">
                     </div>
                     <div class="work-content">
-                        <h3 class="color-white margin-b-5">Новости</h3>
-                        <p class="color-white margin-b-0">Lorem ipsum dolor sit amet consectetur adipiscing</p>
+                        <h3 class="color-white margin-b-5">Вакансии</h3>
+                        <p class="color-white margin-b-0">Здесь представленны актуальные на данный момент вакансии.</p>
                     </div>
-                    <a class="content-wrapper-link" href="#"></a>
+                    <a class="content-wrapper-link" href="{% url 'amkodor:vacancy' 1 %}"></a>
                 </div>
                 <!-- End Work -->
             </div>
@@ -117,12 +125,13 @@
                     </div>
                     <div class="work-content">
                         <h3 class="color-white margin-b-5">Тендеры</h3>
-                        <p class="color-white margin-b-0">Lorem ipsum dolor sit amet consectetur adipiscing</p>
+                        <p class="color-white margin-b-0">Тендеры ЗАО «АМКОДОР-УНИКАБ»</p>
                     </div>
-                    <a class="content-wrapper-link" href="#"></a>
+                    <a class="content-wrapper-link" href="{% url 'amkodor:tender' %}"></a>
                 </div>
                 <!-- End Work -->
             </div>
+
         </div>
         <!-- End Masonry Grid -->
     </div>
@@ -134,40 +143,12 @@
     <div class="content-md container">
         <div class="row margin-b-40">
             <div class="col-sm-6">
-                <h2>Our Clients</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed tempor incididunt ut laboret dolore magna
-                    aliqua enim minim veniam exercitation</p>
+                <h2>ЗАО "Амкодор-Уникаб"</h2>
+                <p>- это эффективность работы, современный технический уровень, с нами надежно, легко, выгодно и успешно.</p>
             </div>
         </div>
-        <!--// end row -->
-
-        <!-- Swiper Clients -->
-        <div class="swiper-slider swiper-clients">
-            <!-- Swiper Wrapper -->
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <img class="swiper-clients-img" src="{% static 'img/clients/01.png' %}" alt="Clients Logo">
-                </div>
-                <div class="swiper-slide">
-                    <img class="swiper-clients-img" src="{% static 'img/clients/02.png' %}" alt="Clients Logo">
-                </div>
-                <div class="swiper-slide">
-                    <img class="swiper-clients-img" src="{% static 'img/clients/03.png' %}" alt="Clients Logo">
-                </div>
-                <div class="swiper-slide">
-                    <img class="swiper-clients-img" src="{% static 'img/clients/04.png' %}" alt="Clients Logo">
-                </div>
-                <div class="swiper-slide">
-                    <img class="swiper-clients-img" src="{% static 'img/clients/05.png' %}" alt="Clients Logo">
-                </div>
-                <div class="swiper-slide">
-                    <img class="swiper-clients-img" src="{% static 'img/clients/06.png' %}" alt="Clients Logo">
-                </div>
-            </div>
-            <!-- End Swiper Wrapper -->
-        </div>
-        <!-- End Swiper Clients -->
     </div>
+
 </div>
 <!-- End Clients -->
 <!--========== END PAGE LAYOUT ==========-->

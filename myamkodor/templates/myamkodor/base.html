@@ -14,205 +14,219 @@
     Premium:        Premium Metronic Admin Theme: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
 ================================== -->
 <html lang="en" class="no-js">
-    <!-- BEGIN HEAD -->
-    <head>
-        <meta charset="utf-8"/>
-        <title>Metronic "Acidus" Frontend Freebie</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta content="width=device-width, initial-scale=1" name="viewport"/>
-        <meta content="" name="description"/>
-        <meta content="" name="author"/>
+<!-- BEGIN HEAD -->
+<head>
+    <title>{{title}}</title>
+    <link rel="shortcut icon" href="{% static 'img/icon.ico' %}" type="image/x-icon"/>
 
-        <!-- GLOBAL MANDATORY STYLES -->
-        <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
-        <link href="{% static 'vendor/simple-line-icons/simple-line-icons.min.css' %}" rel="stylesheet" type="text/css"/>
-        <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css"/>
+    <meta charset="utf-8"/>
+    <title>Metronic "Acidus" Frontend Freebie</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
 
-        <!-- PAGE LEVEL PLUGIN STYLES -->
-        <link href="{% static 'css/animate.css' %}" rel="stylesheet">
-        <link href="{% static 'vendor/swiper/css/swiper.min.css' %}" rel="stylesheet" type="text/css"/>
+    <!-- GLOBAL MANDATORY STYLES -->
+    <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
+    <link href="{% static 'vendor/simple-line-icons/simple-line-icons.min.css' %}" rel="stylesheet" type="text/css"/>
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css"/>
 
-        <!-- THEME STYLES -->
-        <link href="{% static 'css/layout.min.css' %}" rel="stylesheet" type="text/css"/>
+    <!-- PAGE LEVEL PLUGIN STYLES -->
+    <link href="{% static 'css/animate.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/swiper/css/swiper.min.css' %}" rel="stylesheet" type="text/css"/>
 
-        <!-- Favicon -->
-        <link rel="shortcut icon" href="favicon.ico"/>
-    </head>
-    <!-- END HEAD -->
+    <!-- THEME STYLES -->
+    <link href="{% static 'css/layout.min.css' %}" rel="stylesheet" type="text/css"/>
 
-    <!-- BODY -->
-    <body>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico"/>
+</head>
+<!-- END HEAD -->
 
-        <!--========== HEADER ==========-->
-        <header class="header">
-            <!-- Navbar -->
-            <nav class="navbar" role="navigation">
-                <div class="container">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="menu-container">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="toggle-icon"></span>
-                        </button>
+<!-- BODY -->
+<body>
 
-                        <!-- Logo -->
-                        <div class="navbar-logo">
-                            <a class="navbar-logo-wrap" href="{% url 'amkodor:index' %}">
-                                <img class="navbar-logo-img" src="{% static 'img/logo.png' %}" alt="Acidus Logo">
+<!--========== HEADER ==========-->
+<header class="header">
+    <!-- Navbar -->
+    <nav class="navbar" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="menu-container">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="toggle-icon"></span>
+                </button>
+
+                <!-- Logo -->
+                <div class="navbar-logo">
+                    <a class="navbar-logo-wrap" href="{% url 'amkodor:home' %}">
+                        <img class="navbar-logo-img" src="{% static 'img/logo.png' %}" alt="Acidus Logo">
+                    </a>
+                </div>
+                <!-- End Logo -->
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse nav-collapse">
+                <div class="menu-container">
+                    <ul class="navbar-nav navbar-nav-right">
+                        <!-- Home -->
+                        <li class="nav-item">
+                            <a class="nav-item-child active" href="{% url 'amkodor:home' %}">
+                                Главная
                             </a>
-                        </div>
-                        <!-- End Logo -->
-                    </div>
+                        </li>
+                        <!-- End Home -->
 
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse nav-collapse">
-                        <div class="menu-container">
-                            <ul class="navbar-nav navbar-nav-right">
-                                <!-- Home -->
-                                <li class="nav-item">
-                                    <a class="nav-item-child active" href="{% url 'amkodor:index' %}">
-                                        Главная
-                                    </a>
-                                </li>
-                                <!-- End Home -->
+                        <!-- About -->
+                        <li class="nav-item">
+                            <a class="nav-item-child" href="{% url 'amkodor:about' %}">
+                                О компании
+                            </a>
+                        </li>
+                        <!-- End About -->
 
-                                <!-- About -->
-                                <li class="nav-item">
-                                    <a class="nav-item-child" href="about.html">
-                                        О компании
-                                    </a>
-                                </li>
-                                <!-- End About -->
+                        <!-- Work -->
+                        <li class="nav-item">
+                            <a class="nav-item-child" href="{% url 'amkodor:general' %}">
+                                Общее
+                            </a>
+                        </li>
+                        <!-- End Work -->
 
-                                <!-- Work -->
-                                <li class="nav-item">
-                                    <a class="nav-item-child" href="{% url 'amkodor:general' %}">
-                                        Общее
-                                    </a>
-                                </li>
-                                <!-- End Work -->
-
-                                <!-- Contact -->
-                                <li class="nav-item">
-                                    <a class="nav-item-child" href="contact.html">
-                                        Контакты
-                                    </a>
-                                </li>
-                                <!-- End Contact -->
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- End Navbar Collapse -->
-                </div>
-            </nav>
-            <!-- Navbar -->
-        </header>
-        <!--========== END HEADER ==========-->
-
-        <!--========== PAGE LAYOUT ==========-->
-        <!-- Work -->
-        {% block content %}
-        {% endblock %}
-        <!-- End Work -->
-
-        <!-- Features -->
-
-        <!-- End Features -->
-
-        <!-- Clients -->
-
-        <!-- End Clients -->
-
-        <!-- Work -->
-
-        <!-- End Testimonials -->
-
-        <!-- Team -->
-
-        <!-- End Team -->
-        <!--========== END PAGE LAYOUT ==========-->
-
-        <!--========== FOOTER ==========-->
-        <footer class="footer">
-            <!-- Links -->
-            <div class="section-seperator">
-                <div class="content-md container">
-                    <div class="row">
-                        <div class="col-sm-2 sm-margin-b-30">
-                            <!-- List -->
-                            <ul class="list-unstyled footer-list">
-                                <li class="footer-list-item"><a href="{% url 'amkodor:index' %}">Главная</a></li>
-                                <li class="footer-list-item"><a href="#">О компании</a></li>
-                                <li class="footer-list-item"><a href="{% url 'amkodor:general' %}">Общее</a></li>
-                                <li class="footer-list-item"><a href="#">Контакты</a></li>
-                            </ul>
-                            <!-- End List -->
-                        </div>
-                        <div class="col-sm-2 sm-margin-b-30">
-                            <!-- List -->
-                            <ul class="list-unstyled footer-list">
-                                <li class="footer-list-item"><a href="#">Twitter</a></li>
-                                <li class="footer-list-item"><a href="#">Facebook</a></li>
-                                <li class="footer-list-item"><a href="#">Instagram</a></li>
-                                <li class="footer-list-item"><a href="#">YouTube</a></li>
-                            </ul>
-                            <!-- End List -->
-                        </div>
-                        <div class="col-sm-3">
-                            <!-- List -->
-                            <ul class="list-unstyled footer-list">
-                                <li class="footer-list-item"><a href="#">Subscribe to Our Newsletter</a></li>
-                                <li class="footer-list-item"><a href="#">Privacy Policy</a></li>
-                                <li class="footer-list-item"><a href="#">Terms &amp; Conditions</a></li>
-                            </ul>
-                            <!-- End List -->
-                        </div>
-                    </div>
-                    <!--// end row -->
+                        <!-- Contact -->
+                        <li class="nav-item">
+                            <a class="nav-item-child" href="{% url 'amkodor:contact' %}">
+                                Контакты
+                            </a>
+                        </li>
+                        <!-- End Contact -->
+                    </ul>
                 </div>
             </div>
-            <!-- End Links -->
+            <!-- End Navbar Collapse -->
+        </div>
+    </nav>
+    <!-- Navbar -->
+</header>
+<!--========== END HEADER ==========-->
 
-            <!-- Copyright -->
-            <div class="content container">
-                <div class="row">
-                    <div class="col-xs-6">
-                        <img class="footer-logo" src="{% static 'img/logo.png' %}" alt="Acidus Logo">
-                    </div>
-                    <div class="col-xs-6 text-right">
-                        <p class="margin-b-0"><a class="fweight-700" href="http://keenthemes.com/preview/acidus/">Acidus</a> Theme Powered by: <a class="fweight-700" href="http://www.keenthemes.com/">KeenThemes.com</a></p>
-                    </div>
+<!--========== PAGE LAYOUT ==========-->
+<!-- Work -->
+{% block content %}
+
+{% endblock %}
+{% block navigation %}
+{% endblock %}
+
+<!-- End Work -->
+
+<!-- Features -->
+
+<!-- End Features -->
+
+<!-- Clients -->
+
+<!-- End Clients -->
+
+<!-- Work -->
+
+<!-- End Testimonials -->
+
+<!-- Team -->
+
+<!-- End Team -->
+<!--========== END PAGE LAYOUT ==========-->
+
+<!--========== FOOTER ==========-->
+
+<footer class="footer">
+
+    <!-- Links -->
+    <div class="section-seperator">
+        <div class="content-md container">
+            <div class="row">
+                <div class="col-sm-2 sm-margin-b-30">
+                    <!-- List -->
+                    <ul class="list-unstyled footer-list">
+                        <li class="footer-list-item"><a href="{% url 'amkodor:home' %}">Главная</a></li>
+                        <li class="footer-list-item"><a href="{% url 'amkodor:about' %}">О компании</a></li>
+                        <li class="footer-list-item"><a href="{% url 'amkodor:general' %}">Общее</a></li>
+                        <li class="footer-list-item"><a href="{% url 'amkodor:contact' %}">Контакты</a></li>
+                    </ul>
+                    <!-- End List -->
                 </div>
-                <!--// end row -->
+                <div class="col-sm-2 sm-margin-b-30">
+                    <!-- List -->
+                    <ul class="list-unstyled footer-list">
+                        <li class="footer-list-item"><a href="https://t.me/s/amkodor_official">Telegram</a></li>
+                        <li class="footer-list-item"><a href="https://www.facebook.com/Amkodor.holding/">Facebook</a>
+                        </li>
+                        <li class="footer-list-item"><a href="https://www.instagram.com/amkodor_official/">Instagram</a>
+                        </li>
+                        <li class="footer-list-item"><a
+                                href="https://www.youtube.com/watch?v=hTtTvFUxpus&list=TLGGtD9pT_3aKpkyNTEyMjAyMw">YouTube</a>
+                        </li>
+                    </ul>
+                    <!-- End List -->
+                </div>
+                <div class="col-sm-3">
+                    <!-- List -->
+                    <ul class="list-unstyled footer-list">
+                        <li class="footer-list-item"><a href="#">Subscribe to Our Newsletter</a></li>
+                        <li class="footer-list-item"><a href="#">Privacy Policy</a></li>
+                        <li class="footer-list-item"><a href="#">Terms &amp; Conditions</a></li>
+                    </ul>
+                    <!-- End List -->
+                </div>
             </div>
-            <!-- End Copyright -->
-        </footer>
-        <!--========== END FOOTER ==========-->
+            <!--// end row -->
+        </div>
+    </div>
+    <!-- End Links -->
 
-        <!-- Back To Top -->
-        <a href="javascript:void(0);" class="js-back-to-top back-to-top">Top</a>
+    <!-- Copyright -->
+    <div class="content container">
+        <div class="row">
+            <div class="col-xs-6">
+                <img class="footer-logo" src="{% static 'img/logo.png' %}" alt="Acidus Logo">
+            </div>
+            <div class="col-xs-6 text-right">
+                <p class="margin-b-0"><a class="fweight-700" href="{% url 'amkodor:home' %}">Unikab.by</a> Theme Powered
+                    by: <a class="fweight-700" href="https://amkodor.by">Amkodor.by</a></p>
+            </div>
+        </div>
+        <!--// end row -->
+    </div>
+    <!-- End Copyright -->
+</footer>
+<!--========== END FOOTER ==========-->
 
-        <!-- JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
-        <!-- CORE PLUGINS -->
-        <script src="{% static 'vendor/jquery.min.js' %}" type="text/javascript"></script>
-        <script src="{% static 'vendor/jquery-migrate.min.js' %}" type="text/javascript"></script>
-        <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}" type="text/javascript"></script>
+<!-- Back To Top -->
+<a href="javascript:void(0);" class="js-back-to-top back-to-top">Top</a>
 
-        <!-- PAGE LEVEL PLUGINS -->
-        <script src="{% static 'vendor/jquery.easing.js' %}" type="text/javascript"></script>
-        <script src="{% static 'vendor/jquery.back-to-top.js' %}" type="text/javascript"></script>
-        <script src="{% static 'vendor/jquery.smooth-scroll.js' %}" type="text/javascript"></script>
-        <script src="{% static 'vendor/jquery.wow.min.js' %}" type="text/javascript"></script>
-        <script src="{% static 'vendor/swiper/js/swiper.jquery.min.js' %}" type="text/javascript"></script>
-        <script src="{% static 'vendor/masonry/jquery.masonry.pkgd.min.js' %}" type="text/javascript"></script>
-        <script src="{% static 'vendor/masonry/imagesloaded.pkgd.min.js' %}" type="text/javascript"></script>
+<!-- JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+<!-- CORE PLUGINS -->
+<script src="{% static 'vendor/jquery.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'vendor/jquery-migrate.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}" type="text/javascript"></script>
 
-        <!-- PAGE LEVEL SCRIPTS -->
-        <script src="{% static 'js/layout.min.js' %}" type="text/javascript"></script>
-        <script src="{% static 'js/components/wow.min.js' %}" type="text/javascript"></script>
-        <script src="{% static 'js/components/swiper.min.js' %}" type="text/javascript"></script>
-        <script src="{% static 'js/components/masonry.min.js' %}" type="text/javascript"></script>
+<!-- PAGE LEVEL PLUGINS -->
+<script src="{% static 'vendor/jquery.easing.js' %}" type="text/javascript"></script>
+<script src="{% static 'vendor/jquery.back-to-top.js' %}" type="text/javascript"></script>
+<script src="{% static 'vendor/jquery.smooth-scroll.js' %}" type="text/javascript"></script>
+<script src="{% static 'vendor/jquery.wow.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'vendor/swiper/js/swiper.jquery.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'vendor/masonry/jquery.masonry.pkgd.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'vendor/masonry/imagesloaded.pkgd.min.js' %}" type="text/javascript"></script>
 
-    </body>
-    <!-- END BODY -->
+<!-- PAGE LEVEL SCRIPTS -->
+<script src="{% static 'js/layout.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/components/wow.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/components/swiper.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/components/masonry.min.js' %}" type="text/javascript"></script>
+
+</body>
+<!-- END BODY -->
 </html>

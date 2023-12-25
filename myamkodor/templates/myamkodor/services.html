@@ -1,0 +1,82 @@
+{% extends 'myamkodor/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="bg-color-sky-light">
+    <div class="content-md container">
+        <div class="row margin-b-40">
+
+            <h5>ЗАО «АМКОДОР-УНИКАБ» изготавливает по индивидуальным заказам:</h5>
+            <p>Беседки, ворота, калитки, заборы, ограждения и прочие металлоконструкции по чертежам, эскизам
+                заказчика.</p>
+            <p>Выполняем резку, лазерную резку, сверление материалов, токарно-фрезерную обработку с ЧПУ по чертежам,
+                эскизам заказчика, изготовление по образцу, гибку, сварочные работы, работы по антикоррозионной защите
+                металлических изделий.</p>
+            <p>Возможно выполнение заказа из материала заказчика.</p>
+            <p>Реализация сквозного проектирования технологии изготовления деталей на комплексе лазерного раскроя и
+                прессе листогибочном с ЧПУ обеспечивает сжатые сроки и <b>гарантированно</b> высокое качество.</p>
+            <p>Стоимость заказов определяется и согласовывается по результатам фактической проработки чертежей или
+                файлов, представленных в форматах dxf, Parasolid, IGES, ProE Part, Solid Edge Part, с учетом объемов,
+                сложности деталей и срочности исполнения.</p>
+
+
+            <h5>Оказываем транспортные услуги для организаций и населения по РБ:</h5>
+            <ul>
+                <li>
+                    перевозка грузов автомобильным транспортом;
+                </li>
+                <li>
+                    перевозка сыпучих стройматериалов (самосвал, г/п 10 т);
+                </li>
+                <li>
+                    автовышка АГП-18
+                </li>
+                <li>
+                    автокран 16 т
+                </li>
+                <li>
+                    услуги погрузчика ДЗ-133
+                </li>
+            </ul>
+            <h5>При выполнении заказов используется высокоточное оборудование в соответствии с перечнем:</h5>
+        </div>
+
+        {% for service in services %}
+        <div class="row">
+            {% for s in service %}
+            <div class="col-sm-4 sm-margin-b-50">
+                <div class="bg-color-white margin-b-30">
+                    <div class="wow zoomIn" data-wow-duration=".3" data-wow-delay=".1s">
+                        {% if s.photo %}
+                        <img class="img-responsive" src="{{ s.photo.url }}">
+                        {% endif %}
+                    </div>
+                </div>
+                <h4><a href="{% url 'amkodor:showservices' s.slug %}">{{ s.title }}</a> <span
+                        class="text-uppercase margin-l-20"></span></h4>
+                <p>{{ s.content|linebreaks|truncatewords:5 }}</p>
+                <a class="link" href="{% url 'amkodor:showservices' s.slug %}">Смотреть</a>
+            </div>
+
+            {% endfor %}
+        </div>
+
+        <hr size="10">
+        <div class="bg-color-white margin-b-30">
+        </div>
+        {% endfor %}
+
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                    <a class="page-link"
+                       href="{% url 'amkodor:general' %}"
+                       tabindex="-1" aria-disabled="true">Назад
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+{% endblock %}

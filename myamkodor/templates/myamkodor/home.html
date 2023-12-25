@@ -1,0 +1,89 @@
+{% extends 'myamkodor/base.html' %}
+{% load static %}
+
+{% block content %}
+<!--========== PAGE LAYOUT ==========-->
+<!-- Work -->
+<div class="bg-color-sky-light">
+    <div class="content-md container">
+        <!-- Masonry Grid -->
+        <div class="masonry-grid">
+            <div class="masonry-grid-sizer col-xs-6 col-sm-6 col-md-6"></div>
+            <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-6">
+                <!-- Work -->
+                <div class="work">
+                    <div class="work-overlay">
+                        <img class="full-width img-responsive" src="{% static 'img/595x483/01.jpg' %}"
+                             alt="Portfolio Image">
+                    </div>
+                    <div class="work-content">
+                        <h3 class="color-white margin-b-5">ЗАО "Амкодор-Уникаб"</h3>
+                        <p class="color-white margin-b-0">Это эффективность работы, современный технический уровень, с
+                            нами надежно, легко, выгодно и успешно.</p>
+                    </div>
+                    <a class="content-wrapper-link" href="{% url 'amkodor:about' %}"></a>
+                </div>
+                <!-- End Work -->
+            </div>
+            <div class="masonry-grid-item col-xs-6 col-sm-6 col-md-6">
+                <!-- Work -->
+                <div class="work">
+                    <div class="work-overlay">
+                        <img class="full-width img-responsive" src="{% static 'img/595x240/01.jpg' %}"
+                             alt="Portfolio Image">
+                    </div>
+                    <div class="work-content">
+                        <h3 class="color-white margin-b-5">Амкодор-Общее</h3>
+                        <p class="color-white margin-b-0">На данной страницы вы сможете найти информацию о следующих
+                            разделах: Новости,
+                            Вакансии,
+                            Продукция,
+                            Услуги,
+                            Аренда,
+                            Реализация,
+                            Тендеры.</p>
+                    </div>
+                    <a class="content-wrapper-link" href="{% url 'amkodor:general' %}"></a>
+                </div>
+                <!-- End Work -->
+            </div>
+            <div class="masonry-grid-item col-xs-6 col-sm-6 col-md-6">
+                <!-- Work -->
+                <div class="work">
+                    <div class="work-overlay">
+                        <img class="full-width img-responsive" src="{% static 'img/595x240/02.jpg' %}"
+                             alt="Portfolio Image">
+                    </div>
+                    <div class="work-content">
+                        <h3 class="color-white margin-b-5">Амкодор-Контакты</h3>
+                        <p class="color-white margin-b-0">На данной страницы вы можете найти нужные вам контакты</p>
+                    </div>
+                    <a class="content-wrapper-link" href="{% url 'amkodor:contact' %}"></a>
+                </div>
+                <!-- End Work -->
+            </div>
+        </div>
+        <!-- End Masonry Grid -->
+    </div>
+</div>
+<!-- End Work -->
+
+<!-- Features -->
+
+<!-- End Features -->
+
+<!-- Clients -->
+
+<!-- End Clients -->
+
+<!-- Work -->
+
+<!-- End Testimonials -->
+
+<!-- Team -->
+
+<!-- End Team -->
+<!--========== END PAGE LAYOUT ==========-->
+
+<!--========== FOOTER ==========-->
+{% endblock  %}

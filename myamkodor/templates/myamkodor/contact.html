@@ -1,0 +1,50 @@
+{% extends 'myamkodor/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<!-- Contact List -->
+<div class="section-seperator">
+    <div id="map" class="map height-300" align="center">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2327.7170644512235!2d26.816913512276876!3d54.3089535724697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dc7416db4259a5%3A0x91ce0f3d8c11bd32!2z0JDQvNC60L7QtNC-0YAt0KPQvdC40LrQsNCxINCX0JDQng!5e0!3m2!1sru!2sby!4v1701805096599!5m2!1sru!2sby"
+                width="1500" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="content-md container">
+        {% for contact in contacts %}
+        <div class="row">
+            {% for cont in contact %}
+            <!-- Contact List -->
+            <div class="col-sm-3 sm-margin-b-15">
+                <h5>{{ cont.title|wordwrap:15 }}</h5>
+                {% if cont.name %}
+                <p>{{ cont.name }}</p>
+                {% endif %}
+                <ul class="list-unstyled contact-list">
+                    {% if cont.telephone %}
+                    <li><i class="margin-r-10 color-base icon-call-out"></i>Тел.: {{ cont.telephone }}</li>
+                    {% endif %}
+                    {% if cont.faks %}
+                    <li><i class="margin-r-10 color-base icon-call-out"></i>Факс: {{ cont.faks }}</li>
+                    {% endif %}
+                    <li><i class="margin-r-10 color-base icon-envelope"></i> {{ cont.email }}</li>
+                </ul>
+            </div>
+            <!-- End Contact List -->
+            {% endfor %}
+            <!-- End Contact List -->
+
+        </div>
+        <hr>
+        {% endfor %}
+        <!--// end row -->
+        <h5> Новые реквизиты расчетных счетов и кодов банков ЗАО «Амкодор-Уникаб» (УНП 600077950) и кодов банков с
+            04.07.2017г.</h5>
+        <span>Наименование банка - ЦБУ № 601 в ОАО АСБ «Беларусбанк» г.Молодечно</span>
+        <br>
+        <span>BIC - AKBBBY2X № счета - BY60AKBB30122066000226100000</span>
+    </div>
+</div>
+<!-- End Contact List -->
+{% endblock %}

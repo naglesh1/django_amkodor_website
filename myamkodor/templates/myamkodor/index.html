@@ -2,77 +2,92 @@
 {% load static %}
 
 {% block content %}
-        <!--========== PAGE LAYOUT ==========-->
-        <!-- Work -->
-        <div class="bg-color-sky-light">
-            <div class="content-md container">
-                <!-- Masonry Grid -->
-                <div class="masonry-grid">
-                    <div class="masonry-grid-sizer col-xs-6 col-sm-6 col-md-6"></div>
-                    <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-6">
-                        <!-- Work -->
-                        <div class="work">
-                            <div class="work-overlay">
-                                <img class="full-width img-responsive" src="{% static 'img/595x483/01.jpg' %}" alt="Portfolio Image">
-                            </div>
-                            <div class="work-content">
-                                <h3 class="color-white margin-b-5">Art Of Coding</h3>
-                                <p class="color-white margin-b-0">Lorem ipsum dolor sit amet consectetur adipiscing</p>
-                            </div>
-                            <a class="content-wrapper-link" href="#"></a>
-                        </div>
-                        <!-- End Work -->
-                    </div>
-                    <div class="masonry-grid-item col-xs-6 col-sm-6 col-md-6">
-                        <!-- Work -->
-                        <div class="work">
-                            <div class="work-overlay">
-                                <img class="full-width img-responsive" src="{% static 'img/595x240/01.jpg' %}" alt="Portfolio Image">
-                            </div>
-                            <div class="work-content">
-                                <h3 class="color-white margin-b-5">Clean Design</h3>
-                                <p class="color-white margin-b-0">Lorem ipsum dolor sit amet consectetur adipiscing</p>
-                            </div>
-                            <a class="content-wrapper-link" href="#"></a>
-                        </div>
-                        <!-- End Work -->
-                    </div>
-                    <div class="masonry-grid-item col-xs-6 col-sm-6 col-md-6">
-                        <!-- Work -->
-                        <div class="work">
-                            <div class="work-overlay">
-                                <img class="full-width img-responsive" src="{% static 'img/595x240/02.jpg' %}" alt="Portfolio Image">
-                            </div>
-                            <div class="work-content">
-                                <h3 class="color-white margin-b-5">Amazing Support</h3>
-                                <p class="color-white margin-b-0">Lorem ipsum dolor sit amet consectetur adipiscing</p>
-                            </div>
-                            <a class="content-wrapper-link" href="#"></a>
-                        </div>
-                        <!-- End Work -->
-                    </div>
-                </div>
-                <!-- End Masonry Grid -->
+
+
+<div class="bg-color-sky-light">
+
+    <div class="content-md container">
+
+        <div class="row margin-b-20">
+            <div class="col-sm-12">
+                <h2>{{obj.title}}</h2>
             </div>
         </div>
-        <!-- End Work -->
+        <!--// end row -->
 
-        <!-- Features -->
+        <div class="row">
+            <div class="col-sm-7 sm-margin-b-50">
+                <div class="margin-b-30">
+                    <p>{{obj.content|linebreaks}}</p>
+                </div>
+                {% if obj.file %}
+                <h5><a href="{{ obj.file.url }}" target="_blank" rel="noopener noreferrer" class="">Технические
+                    характеристики на {{ obj.title }}</a></h5>
+                {% endif %}
+            </div>
+            <div class="col-sm-4 col-sm-offset-1">
+                {% if obj.photo %}
+                <img class="img-responsive" src="{{obj.photo.url}}" alt="Our Office">
+                {% endif %}
 
-        <!-- End Features -->
 
-        <!-- Clients -->
+                <br>
+                {% if obj.photo2 %}
+                <img class="img-responsive" src="{{obj.photo2.url}}" alt="Our Office">
+                {% endif %}
 
-        <!-- End Clients -->
 
-        <!-- Work -->
+                <br>
+                {% if obj.photo3 %}
+                <img class="img-responsive" src="{{obj.photo3.url}}" alt="Our Office">
+                {% endif %}
 
-        <!-- End Testimonials -->
 
-        <!-- Team -->
+            </div>
 
-        <!-- End Team -->
-        <!--========== END PAGE LAYOUT ==========-->
 
-        <!--========== FOOTER ==========-->
-{% endblock  %}
+        </div>
+
+
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center" >
+                <li class="page-item">
+                    <a class="page-link"
+                       href="{{request.META.HTTP_REFERER}}"
+                       tabindex="-1" aria-disabled="true">Назад
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!--    <br>-->
+    <!--    <div class="row">-->
+
+    <!--        <div class="col-sm-4 sm-margin-b-50">-->
+    <!--            <div class="bg-color-white margin-b-30">-->
+    <!--                <div class="wow zoomIn" data-wow-duration=".3" data-wow-delay=".1s">-->
+    <!--                    <img class="img-responsive" src="{{ news.photo.url }}">-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--                <div class="col-sm-4 sm-margin-b-50">-->
+    <!--            <div class="bg-color-white margin-b-30">-->
+    <!--                <div class="wow zoomIn" data-wow-duration=".3" data-wow-delay=".1s">-->
+    <!--                    <img class="img-responsive" src="{{ news.photo.url }}">-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--                <div class="col-sm-4 sm-margin-b-50">-->
+    <!--            <div class="bg-color-white margin-b-30">-->
+    <!--                <div class="wow zoomIn" data-wow-duration=".3" data-wow-delay=".1s">-->
+    <!--                    <img class="img-responsive" src="{{ news.photo.url }}">-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+
+
+    <!--    </div>-->
+</div>
+
+
+{% endblock %}

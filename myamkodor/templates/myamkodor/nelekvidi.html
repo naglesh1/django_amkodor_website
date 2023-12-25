@@ -1,0 +1,143 @@
+{% extends 'myamkodor/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="bg-color-sky-light">
+    <div class="bg-color-sky-light">
+        <br>
+        <!--        <div style="position:fixed">-->
+
+
+        <table  cellpadding="40" border="1" width="150px" align="center" height="250px" color="grey"  style=" position:fixed   ">
+            <tr align="center"  >
+                <td colspan="4"><a href="{% url 'amkodor:realization' 1 %}">Транспорт Б/У
+                </a></td>
+            </tr>
+
+            <tr align="center">
+                <td><a href="#A">A
+                </a></td>
+                <td><a href="#B">Б
+                </a></td>
+                <td><a href="#V">В
+                </a></td>
+                <td><a href="#G">Г
+                </a></td>
+            </tr>
+
+            <tr align="center">
+                <td><a href="#D">Д
+                </a></td>
+                <td><a href="#E">Е
+                </a></td>
+                <td><a href="#J">Ж
+                </a></td>
+                <td><a href="#Z">З
+                </a></td>
+            </tr>
+
+            <tr align="center">
+                <td><a href="#I">И
+                </a></td>
+                <td><a href="#K">К
+                </a></td>
+                <td><a href="#L">Л
+                </a></td>
+                <td><a href="#M">М
+                </a></td>
+            </tr>
+
+            <tr align="center">
+                <td><a href="#N">Н
+                </a></td>
+                <td><a class="page-link"
+                       href="#O">О
+                </a></td>
+                <td><a href="#P">П
+                </a></td>
+                <td><a href="#R">Р
+                </a></td>
+            </tr>
+
+            <tr align="center">
+                <td><a href="#S">С
+                </a></td>
+                <td>
+                    <a href="#T">Т
+                    </a></td>
+                <td><a href="#Y">У
+                </a></td>
+                <td><a href="#F">Ф
+                </a></td>
+            </tr>
+
+            <tr align="center">
+                <td><a href="#X">Х
+                </a></td>
+                <td><a href="#C">Ц
+                </a></td>
+                <td><a href="#CH">Ч
+                </a></td>
+                <td><a href="#SH">Ш
+                </a></td>
+            </tr>
+
+            <tr align="center">
+                <td><a href="#SHH">Щ
+                </a></td>
+                <td><a href="#W">Э
+                </a></td>
+                <td><a href="#U">Ю
+                </a></td>
+                <td><a href="#Q">Я
+                </a></td>
+            </tr>
+        </table>
+
+
+        <!--        </div>-->
+
+    </div>
+    <!--    <div class="col-lg-2">-->
+    <!--</div>-->
+
+    <br>
+    <br>
+    <!--     /.col-lg-3 -->
+
+    <div class="container">
+        <h3 align="center"> ЗАО "Амкадор-Уникаб" производит реализацию неиспользуемых материалов
+        </h3>
+        <h3 align="center">Доступны скидки на все позиции 50-70%
+        </h3>
+
+        <div class="row">
+            {% for nelekvidi in nelekvidis %}
+
+            {% for n in nelekvidi %}
+
+            <div class="col-lg-6 col-md-6 mb-4">
+                <h3 align="center"><a name="{{ n.eng }}">{{ n.title }}</h3>
+                <hr width="550">
+                <div>
+
+                    {{ n.content | linebreaks}}
+                </div>
+            </div>
+
+            {% endfor %}
+            {% endfor %}
+        </div>
+
+
+    </div>
+</div>
+
+
+</div>
+
+</div>
+
+
+{% endblock %}

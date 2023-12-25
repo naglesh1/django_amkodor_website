@@ -1,0 +1,70 @@
+{% extends 'myamkodor/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="bg-color-sky-light">
+    <div class="content-md container">
+        <h3 align="center">Актуальные вакансии</h3>
+        <hr>
+        {% for vacancy in vacancies %}
+                <div class="section-seperator">
+            <div class="content-md container">
+                <div class="row">
+                    {% for vac in vacancy %}
+                    <div class="col-sm-4 sm-margin-b-50">
+                        <div class="wow fadeInLeft" data-wow-duration=".3" data-wow-delay=".3s">
+                            <h3>{{vac.title}}</h3>
+                            <p>{{vac.duties|linebreaks|truncatewords:10 }}</p>
+                            <a class="link" href="{% url 'amkodor:showvacancy' vac.slug %}">Смотреть</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <!--// end row -->
+            </div>
+        </div>
+
+        {% endfor %}
+        <!--// end row -->
+        <br>
+               <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                    <a class="page-link"
+                       href="{% url 'amkodor:general' %}"
+                       tabindex="-1" aria-disabled="true">Назад
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+
+<!--    {% if is_paginated %}-->
+<!--    <nav aria-label="Page navigation example" , align="center">-->
+<!--        <ul class="pagination justify-content-center">-->
+<!--            <li class="page-item {% if not page_obj.has_previous %} disabled {% endif %}">-->
+<!--                <a class="page-link"-->
+<!--                   href="{% if page_obj.has_previous %} {% url 'amkodor:vacancy' page_obj.previous_page_number %} {% else %} # {% endif %}"-->
+<!--                   tabindex="-1" aria-disabled="true">Предыдущая-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            {% for page in paginator.page_range %}-->
+<!--            <li class="page-item">-->
+<!--                <a class="page-link" href="{% url 'amkodor:vacancy' page %}">-->
+<!--                    {{ page }}-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            {% endfor %}-->
+<!--            <li class="page-item {% if not page_obj.has_next %} disabled {% endif %}">-->
+<!--                <a class="page-link"-->
+<!--                   href="{% if page_obj.has_next %} {% url 'amkodor:vacancy' page_obj.next_page_number %} {% else %} # {% endif %}">Следующая</a>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </nav>-->
+<!--</div>-->
+
+<!--{% endif %}-->
+</div>
+{% endblock %}

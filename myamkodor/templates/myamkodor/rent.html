@@ -1,0 +1,38 @@
+{% extends 'myamkodor/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="bg-color-sky-light">
+        <div class="content-md container">
+            <div class="row margin-b-20">
+            <h2 align="center">Аренда</h2>
+            <p><h5>ЗАО «АМКОДОР-УНИКАБ»</h5> сдает в долгосрочную аренду помещения административного, производственного,
+            складского назначения:
+
+            Месторасположение: ул. В. Гостинец, 38, г. Молодечно, Республика Беларусь</p>
+            {% for rent in rents %}
+            <p>{{ rent.content }}</p>
+            {% endfor %}
+
+            <p><h5>Контактные данные:</h5>
+
+            Тел.: +375(176) 73-00-46
+            Факс: +375(176) 77-44-25
+            E-mail:mail@unikab.by</p>
+
+
+        </div>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                    <a class="page-link"
+                       href="{{request.META.HTTP_REFERER}}"
+                       tabindex="-1" aria-disabled="true">Назад
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+{% endblock %}

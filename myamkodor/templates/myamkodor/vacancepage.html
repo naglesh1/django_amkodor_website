@@ -1,0 +1,33 @@
+{% extends 'myamkodor/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="bg-color-sky-light">
+    <div class="content-md container">
+        <h4>{{vacancy.title}}</h4>
+        <h5>Обязанности:</h5>
+        {{vacancy.duties|linebreaks}}
+        <br>
+
+        <h5>Требования к соискателю:</h5>
+        {{vacancy.requirements|linebreaks}}
+        <br>
+
+        <h5>Мы предлагаем:</h5>
+        {{vacancy.offers|linebreaks}}
+        <br>
+
+         <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                    <a class="page-link"
+                       href="{{request.META.HTTP_REFERER}}"
+                       tabindex="-1" aria-disabled="true">Назад
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+{% endblock %}

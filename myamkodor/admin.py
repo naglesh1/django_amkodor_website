@@ -6,8 +6,8 @@ from .models import News, Contact, Vacancy, Tender, Rent, Products, ProductCateg
 
 @admin.register(News)
 class NewsAdmin(admin.ModelAdmin):
-    fields = ('title', 'slug', 'content', 'photo', 'post_photo')
-    list_display = ('title', 'post_photo', 'time_create', 'is_published')
+    fields = ('title', 'slug',  'content', 'photo', 'post_photo', 'photo2', 'photo3')
+    list_display = ('title', 'post_photo',  'time_create', 'is_published')
     list_display_links = ('title',)
     ordering = ['-time_create', 'title']
     list_editable = ('is_published',)
@@ -160,5 +160,6 @@ class ServicesAdmin(admin.ModelAdmin):
         if new.photo:
             return mark_safe(f"<img src='{new.photo.url}' width=50>")
         return f'Без фото'
+
 
 

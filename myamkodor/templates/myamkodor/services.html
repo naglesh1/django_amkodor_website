@@ -56,6 +56,10 @@
                         class="text-uppercase margin-l-20"></span></h4>
                 <p>{{ s.content|linebreaks|truncatewords:5 }}</p>
                 <a class="link" href="{% url 'amkodor:showservices' s.slug %}">Смотреть</a>
+                <div align="right"><span align="right"
+                                         style=" align:right display: inline-block; font-size: 15px; color: #666666; background: #fafafa; border-radius: 6px; padding: 10px 20px;">👁 {{ s.viewers.count }}</span>
+                </div>
+
             </div>
 
             {% endfor %}

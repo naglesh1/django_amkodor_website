@@ -23,10 +23,16 @@
                         {% endif %}
                     </div>
                 </div>
-                <h4><a href="{% url 'amkodor:shownews' new.slug %}">{{ new.title }}</a> <span
+                <h4><a href="{% url 'amkodor:shownews' new.slug %}">{{ new.title }}
+                </a> <span
                         class="text-uppercase margin-l-20"></span></h4>
                 <p>{{ new.content|linebreaks|truncatewords:20 }}</p>
-                <a class="link" href="{% url 'amkodor:shownews' new.slug %}">Читать</a>
+                <a class="link" href="{% url 'amkodor:shownews' new.slug %}">Читать </a>
+
+                <div align="right"  ><span align="right" style=" align:right display: inline-block; font-size: 15px; color: #666666; background: #fafafa; border-radius: 6px; padding: 10px 20px;">👁 {{ new.viewers.count }}</span></div>
+
+
+
             </div>
 
             {% endfor %}

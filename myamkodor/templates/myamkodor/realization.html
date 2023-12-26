@@ -8,11 +8,10 @@
 
 
         <div class="list-group">
-        <h1 class="my-4"><a class="page-link"
-                       href="{% url 'amkodor:realization' 1 %}">Реализация</a></h1>
+            <h1 class="my-4"><a class="page-link"
+                                href="{% url 'amkodor:realization' 1 %}">Реализация</a></h1>
             <a href="#" class="list-group-item">Транспорт б/у</a>
             <a href="{% url 'amkodor:nelekvidi' %}" class="list-group-item">Нелеквиды</a>
-
 
 
         </div>
@@ -27,60 +26,64 @@
     <div class="container">
         <div class="col-lg-9">
             {% for product in products %}
-                        <!--        <div class="row">-->
-                        <div class="bg-color-sky-light">
+            <!--        <div class="row">-->
+            <div class="bg-color-sky-light">
 
-                            <div class="container">
+                <div class="container">
 
-                                {% for p in product %}
-                                <div class="col-sm-3 sm-margin-b-50">
-                                    <div class="bg-color-white margin-b-30">
-                                        <div class="wow zoomIn" data-wow-duration=".3" data-wow-delay=".1s">
-                                            {% if p.photo %}
-                                            <img class="img-responsive" src="{{ p.photo.url }}">
-                                            {% endif %}
-                                        </div>
-                                    </div>
-
-                                    <h4>{{ p.title }} <span class="text-uppercase margin-l-20"></span></h4>
-                                    <p>{{ p.content|linebreaks|truncatewords:5 }}</p>
-                                    <a class="link" href="{% url 'amkodor:showtransport' p.slug %}">Смотреть</a>
-
-                                </div>
-                                {% endfor %}
-
+                    {% for p in product %}
+                    <div class="col-sm-3 sm-margin-b-50">
+                        <div class="bg-color-white margin-b-30">
+                            <div class="wow zoomIn" data-wow-duration=".3" data-wow-delay=".1s">
+                                {% if p.photo %}
+                                <img class="img-responsive" src="{{ p.photo.url }}">
+                                {% endif %}
                             </div>
-                            <hr size="10" width="850">
-                            <div class="bg-color-white margin-b-30">
-                            </div>
-                            {% endfor %}
-
                         </div>
+
+                        <h4>{{ p.title }} <span class="text-uppercase margin-l-20"></span></h4>
+                        <p>{{ p.content|linebreaks|truncatewords:5 }}</p>
+                        <a class="link" href="{% url 'amkodor:showtransport' p.slug %}">Смотреть</a>
+                        <div align="right"><span align="right"
+                                                 style=" align:right display: inline-block; font-size: 15px; color: #666666; background: #fafafa; border-radius: 6px; padding: 10px 20px;">👁 {{ p.viewers.count }}</span>
+                        </div>
+
+
                     </div>
-                    {% if is_paginated %}
-                    <nav aria-label="Page navigation example" , align="center">
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item {% if not page_obj.has_previous %} disabled {% endif %}">
-                                <a class="page-link"
-                                   href="{% if page_obj.has_previous %} {% url 'amkodor:realization' page_obj.previous_page_number %} {% else %} # {% endif %}"
-                                   tabindex="-1" aria-disabled="true">Предыдущая
-                                </a>
-                            </li>
-                            {% for page in paginator.page_range %}
-                            <li class="page-item">
-                                <a class="page-link" href="{% url 'amkodor:realization' page %}">
-                                    {{ page }}
-                                </a>
-                            </li>
-                            {% endfor %}
-                            <li class="page-item {% if not page_obj.has_next %} disabled {% endif %}">
-                                <a class="page-link"
-                                   href="{% if page_obj.has_next %} {% url 'amkodor:realization' page_obj.next_page_number %} {% else %} # {% endif %}">Следующая</a>
-                            </li>
-                        </ul>
-                    </nav>
+                    {% endfor %}
+
                 </div>
-                {% endif %}
+                <hr size="10" width="850">
+                <div class="bg-color-white margin-b-30">
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+        {% if is_paginated %}
+        <nav aria-label="Page navigation example" , align="center">
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not page_obj.has_previous %} disabled {% endif %}">
+                    <a class="page-link"
+                       href="{% if page_obj.has_previous %} {% url 'amkodor:realization' page_obj.previous_page_number %} {% else %} # {% endif %}"
+                       tabindex="-1" aria-disabled="true">Предыдущая
+                    </a>
+                </li>
+                {% for page in paginator.page_range %}
+                <li class="page-item">
+                    <a class="page-link" href="{% url 'amkodor:realization' page %}">
+                        {{ page }}
+                    </a>
+                </li>
+                {% endfor %}
+                <li class="page-item {% if not page_obj.has_next %} disabled {% endif %}">
+                    <a class="page-link"
+                       href="{% if page_obj.has_next %} {% url 'amkodor:realization' page_obj.next_page_number %} {% else %} # {% endif %}">Следующая</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    {% endif %}
     <br>
 
 </div>

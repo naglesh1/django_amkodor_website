@@ -45,12 +45,22 @@
 
             </div>
 
+            {% if obj.viewers %}
+            <div class="row">
+                <div class="col-sm-7 sm-margin-b-50">
+                    <div align="right"><span align="right"
+                                             style=" align:right display: inline-block; font-size: 15px; color: #666666; background: #fafafa; border-radius: 6px; padding: 10px 20px;">👁 {{ obj.viewers.count }}</span>
+                    </div>
+                </div>
+            </div>
 
+
+            {% endif %}
         </div>
 
 
         <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-center" >
+            <ul class="pagination justify-content-center">
                 <li class="page-item">
                     <a class="page-link"
                        href="{{request.META.HTTP_REFERER}}"

@@ -4,9 +4,9 @@
 {% block content %}
 <div class="bg-color-sky-light">
     <br>
-    <div class="col-lg-2"  style="position:sticky">
+    <div class="col-lg-2" style="position:sticky">
         <h1 class="my-4"><a class="page-link"
-                       href="{% url 'amkodor:products' 1%}">Категории</a></h1>
+                            href="{% url 'amkodor:products' 1%}">Категории</a></h1>
 
         <div class="list-group">
             {% for category in categories %}
@@ -16,8 +16,8 @@
         </div>
 
     </div>
-<!--    <div class="col-lg-2">-->
-<!--</div>-->
+    <!--    <div class="col-lg-2">-->
+    <!--</div>-->
 
     <div class="col-lg-1">
     </div>
@@ -43,6 +43,10 @@
                         <h4>{{ p.title }} <span class="text-uppercase margin-l-20"></span></h4>
                         <p>{{ p.content|linebreaks|truncatewords:5 }}</p>
                         <a class="link" href="{% url 'amkodor:showproduct' p.slug %}">Смотреть</a>
+                        <div align="right"><span align="right"
+                                                 style=" align:right display: inline-block; font-size: 15px; color: #666666; background: #fafafa; border-radius: 6px; padding: 10px 20px;">👁 {{ p.viewers.count }}</span>
+                        </div>
+
 
                     </div>
                     {% endfor %}

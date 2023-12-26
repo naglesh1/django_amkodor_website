@@ -8,6 +8,10 @@
             <h2 align="center">Тендеры</h2>
             {% for tender in tenders %}
             <a href="{% url 'amkodor:showtender' tender.slug %}">{{ tender.title }}</a>
+            <div align="right"><span align="right"
+                                     style=" align:right display: inline-block; font-size: 15px; color: #666666; background: #fafafa; border-radius: 6px; padding: 10px 20px;">👁 {{ tender.viewers.count }}</span>
+            </div>
+
             <hr>
 
             {% endfor %}

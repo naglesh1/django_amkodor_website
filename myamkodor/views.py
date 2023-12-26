@@ -1,11 +1,11 @@
+from django.http import request
 from django.shortcuts import get_object_or_404
 from django.views.generic import TemplateView, ListView, DetailView
 
 from myamkodor.models import News, Contact, Vacancy, Tender, Rent, Products, ProductCategory, Nelekvidi, TransportBY, \
     Services
 from .functions import new_get_queryset
-
-
+from .mixins import CountViewerMixin
 
 
 class IndexView(TemplateView):
@@ -33,10 +33,15 @@ class NewsView(ListView):
                      }
 
 
-class ShowNews(DetailView):
+
+
+class ShowNews(CountViewerMixin, DetailView):
     template_name = 'myamkodor/index.html'
     context_object_name = 'obj'
     slug_url_kwarg = 'news_slug'
+
+
+
 
     def get_object(self, queryset=None):
         return get_object_or_404(News.objects.get_is_published(), slug=self.kwargs[self.slug_url_kwarg])
@@ -74,7 +79,7 @@ class VacancyView(ListView):
                      }
 
 
-class ShowVacancy(DetailView):
+class ShowVacancy(CountViewerMixin, DetailView):
     template_name = 'myamkodor/vacancepage.html'
     context_object_name = 'vacancy'
     slug_url_kwarg = 'vacancy_slug'
@@ -97,7 +102,7 @@ class TenderView(ListView):
                      }
 
 
-class ShowTender(DetailView):
+class ShowTender(CountViewerMixin, DetailView):
     template_name = 'myamkodor/showtender.html'
     context_object_name = 'tender'
     slug_url_kwarg = 'tender_slug'
@@ -140,7 +145,7 @@ class ProductsView(ListView):
             Products.objects.filter(category_id=category_id) if category_id else Products.objects.all(), 3)
 
 
-class ShowProduct(DetailView):
+class ShowProduct(CountViewerMixin, DetailView):
     template_name = 'myamkodor/index.html'
     context_object_name = 'obj'
     slug_url_kwarg = 'product_slug'
@@ -175,7 +180,7 @@ class RealizationView(ListView):
                      }
 
 
-class ShowTransport(DetailView):
+class ShowTransport(CountViewerMixin, DetailView):
     template_name = 'myamkodor/index.html'
     context_object_name = 'obj'
     slug_url_kwarg = 'product_slug'
@@ -198,7 +203,7 @@ class SecvicesView(ListView):
                      }
 
 
-class ShowServices(DetailView):
+class ShowServices(CountViewerMixin, DetailView):
     template_name = 'myamkodor/index.html'
     context_object_name = 'obj'
     slug_url_kwarg = 'product_slug'

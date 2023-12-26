@@ -1,5 +1,8 @@
 from django import forms
+from django.conf import settings
 from django.db import models
+
+
 
 
 class PublishedManager(models.Manager):
@@ -7,13 +10,17 @@ class PublishedManager(models.Manager):
         return super().get_queryset().filter(is_published=News.Status.PUBLISHED)
 
 
-class News(models.Model):
+class Viewer(models.Model):
+    ipaddress = models.GenericIPAddressField("IP address", blank=True, null=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, blank=True, null=True)
 
+class News(models.Model):
 
     class Status(models.IntegerChoices):
         DRAFT = 0, 'Черновик'
         PUBLISHED = 1, 'Опубликовано'
 
+    viewers = models.ManyToManyField(Viewer, verbose_name='Просмотры')
     title = models.CharField(max_length=255, verbose_name='Заголовок', default=None)
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="Slug", default=None)
     photo = models.ImageField(upload_to="news_images", default=None,
@@ -38,11 +45,7 @@ class News(models.Model):
         verbose_name = 'Новости'
         verbose_name_plural = 'Новости'
 
-    def get_view_count(self):
-        """
-        Возвращает количество просмотров для данной статьи
-        """
-        return self.views.count()
+
 
 
 
@@ -64,6 +67,8 @@ class Contact(models.Model):
 
 
 class Vacancy(models.Model):
+    viewers = models.ManyToManyField(Viewer, verbose_name='Просмотры')
+
     title = models.CharField(max_length=255, verbose_name='Название должности', default=None)
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="Slug", default=None)
     duties = models.TextField(max_length=1000, verbose_name='Обязанности', default=None)
@@ -77,6 +82,8 @@ class Vacancy(models.Model):
 
 
 class Tender(models.Model):
+    viewers = models.ManyToManyField(Viewer, verbose_name='Просмотры')
+
     title = models.CharField(max_length=255, verbose_name='Заголовок', default=None)
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="Slug", default=None)
     content = models.TextField(max_length=1000000, verbose_name='Данные', default=None)
@@ -108,6 +115,8 @@ class ProductCategory(models.Model):
 
 
 class Products(models.Model):
+    viewers = models.ManyToManyField(Viewer, verbose_name='Просмотры')
+
     title = models.CharField(max_length=255, verbose_name='Название', default=None)
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="Slug", default=None)
     photo = models.ImageField(upload_to="products_images", default=None,
@@ -121,6 +130,7 @@ class Products(models.Model):
     time_update = models.DateTimeField(auto_now=True, verbose_name='Время изменения', null=True)
     category = models.ForeignKey(to=ProductCategory, on_delete=models.CASCADE)
     file = models.FileField(upload_to="products_file",  blank=True, null=True, verbose_name='Файл')
+
 
     def __str__(self):
         return self.title
@@ -143,6 +153,8 @@ class Nelekvidi(models.Model):
 
 
 class TransportBY(models.Model):
+    viewers = models.ManyToManyField(Viewer, verbose_name='Просмотры')
+
     title = models.CharField(max_length=255, verbose_name='Название', default=None)
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="Slug", default=None)
     photo = models.ImageField(upload_to="transportby_images", default=None,
@@ -168,6 +180,9 @@ class TransportBY(models.Model):
 
 
 class Services(models.Model):
+    viewers = models.ManyToManyField(Viewer, verbose_name='Просмотры')
+
+
     title = models.CharField(max_length=255, verbose_name='Название', default=None)
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="Slug", default=None)
     photo = models.ImageField(upload_to="services_images", default=None,
